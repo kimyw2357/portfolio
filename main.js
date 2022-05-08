@@ -16,7 +16,14 @@ const navbarMenu = document.querySelector('.navbar__menu');
 navbarMenu.addEventListener('click', (event) => {
   const link = event.target.dataset.link;
   if (!link) return;
+  navbarMenu.classList.remove('open');
   scrollIntoView(link);
+});
+
+//navbar toglle button 
+const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
+navbarToggleBtn.addEventListener('click', () => {
+  navbarMenu.classList.toggle('open');
 });
 
 // contact me button
