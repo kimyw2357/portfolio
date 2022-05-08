@@ -16,7 +16,17 @@ const navbarMenu = document.querySelector('.navbar__menu');
 navbarMenu.addEventListener('click', (event) => {
   const link = event.target.dataset.link;
   if (!link) return;
-  const target = document.querySelector(link);
+  scrollIntoView(link);
+});
+
+// contact me button
+const homeContactBtn = document.querySelector('.home__contact');
+homeContactBtn.addEventListener('click', () => {
+  scrollIntoView('#contact');
+});
+
+function scrollIntoView(selector) {
+  const target = document.querySelector(selector);
   const targetY = target.getBoundingClientRect().y;
   const distance = window.pageYOffset + targetY - navbarHeight;
   window.scroll({
@@ -24,4 +34,4 @@ navbarMenu.addEventListener('click', (event) => {
     top: distance,
     behavior: 'smooth',
   });
-});
+}
