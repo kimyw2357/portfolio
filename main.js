@@ -54,6 +54,12 @@ const projects = document.querySelectorAll('.project');
 workBtnContainer.addEventListener('click', (e) => {
   const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
   if(!filter) return;
+
+const select = document.querySelector('.category__btn.selected');
+select.classList.remove('selected');
+const target = e.target.nodeName === 'BUTTON' ? e.target : e.target.parentNode;
+target.classList.add('selected');
+
   projectContainer.classList.add('anim-out');
   setTimeout(() => {
     projects.forEach((project) => {
